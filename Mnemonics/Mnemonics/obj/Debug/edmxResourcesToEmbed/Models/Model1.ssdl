@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MnemonicsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryDescription" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Keywords">
+    <Key>
+      <PropertyRef Name="KeywordsId" />
+    </Key>
+    <Property Name="KeywordsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChapterNo" Type="nvarchar" MaxLength="45" />
+    <Property Name="ConceptToRemember" Type="nvarchar" MaxLength="45" />
+    <Property Name="Mnemonics" Type="nvarchar" MaxLength="500" />
+    <Property Name="KeyID" Type="nvarchar" MaxLength="45" />
+    <Property Name="AddedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="Visibile" Type="nvarchar" MaxLength="45" />
+    <Property Name="Deleted" Type="nvarchar" MaxLength="45" />
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="2040" />
+  </EntityType>
+  <EntityType Name="Recover">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="nvarchar" MaxLength="45" />
+    <Property Name="RecoverHash" Type="nvarchar" MaxLength="45" />
+    <Property Name="PreviousEmail" Type="nvarchar" MaxLength="45" />
+    <Property Name="PreviousPassword" Type="nvarchar" MaxLength="45" />
+    <Property Name="PreviousRecoverHash" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="45" />
+    <Property Name="Password" Type="nvarchar" MaxLength="45" />
+    <Property Name="Email" Type="nvarchar" MaxLength="45" />
+    <Property Name="Course" Type="nvarchar" MaxLength="100" />
+    <Property Name="VerificationHash" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="MnemonicsDbModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Keywords" EntityType="Self.Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recover" EntityType="Self.Recover" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

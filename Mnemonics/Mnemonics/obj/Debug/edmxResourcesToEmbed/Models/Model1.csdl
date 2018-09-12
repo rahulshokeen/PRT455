@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MnemonicsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="KeywordsId" />
+    </Key>
+    <Property Name="KeywordsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChapterNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ConceptToRemember" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Mnemonics" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="KeyID" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Visibile" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int64" Nullable="false" />
+    <Property Name="Logo" Type="String" MaxLength="2040" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Recover">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="RecoverHash" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousPassword" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousRecoverHash" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Course" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VerificationHash" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MnemonicsDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Keywords" EntityType="Self.Keyword" />
+    <EntitySet Name="Recovers" EntityType="Self.Recover" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

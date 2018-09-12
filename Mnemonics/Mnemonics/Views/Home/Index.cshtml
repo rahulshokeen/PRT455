@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Mnemonics</h1>
+    <p style="text-align:justify;" class="lead">A mnemonic, or memory gadget, is any learning strategy that guides data maintenance in the human memory. Mnemonics make utilization of elaborative encoding, recovery prompts, and symbolism as devices to encode any given data in a way that takes into consideration proficient capacity and recovery. </p>
+    <p><a href="https://en.wikipedia.org/wiki/Mnemonic" class="btn btn-success btn-lg">Learn more about Mnemonics &raquo;</a></p>
+</div>
+<!--
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+    </div>
+</div>
+-->
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".ui.message").hide();
+
+
+
+        $(".categories_list").on('click', function () {
+            $('#category_list_modal').modal('show');
+            $('.ui.accordion').accordion();
+        });
+
+
+
+        $("p").removeClass("myClass yourClass")
+        $(".todelete").remove();
+        $("#formID").submit(function (event) {
+            $(".card").remove();
+            $(".top").remove();
+            //to prevent normal form submition and reloading page
+            event.preventDefault();
+            var formDetails = $('#SearchInput').val();
+            if (formDetails.length > 0) {
+                $(".todelete").remove();
+                $.ajax({
+                    type: "POST",
+                    url: 'aj.php',
+                    data: { word: formDetails },
+                    success: function (data) {
+                        var jsonData = JSON.parse(data);
+                        objData = jsonData[0];
+                        catData = jsonData[1];
+                        catColor = jsonData[2];
+                        if (objData['None'] == 0) {
+                            var res = "<div class=\"todelete\"><div class=\"card\"> <ul class=\"ui fluid vertical menu\">";
+                            for (var link in objData) {
+                                if (link != 'None')
+                                    res = res + "<a class='ui " + catColor[catData[link]] + " ribbon label'>" + catData[link] + "</a><a class=\"item\" href = \"" + objData[link] + "\">" + link + "<\/a>";
+                            }
+                            res = res + "<\/div>";
+                            $(".toappend").append(res);
+                        }
+                        else {
+                            var res = "<div class=\"todelete\"><div class=\"card\"> <ul class=\"ui fluid vertical menu\">";
+                            res = res + "<a class=\"item\">No Results<\/a>";
+                            res = res + "<\/div>";
+                            $(".toappend").append(res);
+                        }
+
+
+
+                    },
+                    error: function (jqXHR, text, error) {
+                        // Displaying if there are any errors
+                        $('#result').html(error);
+                    }
+                });
+            }
+            else {
+                $(".attach_top").append("<div class=\" top\"><\/div>");
+                $(".todelete").remove();
+            }
+            return false;
+        });
+
+    });
+</script>
+
+
+<form id="formID" method="post" name="formID">
+    <div class="container-fluid" align="center" style="padding: 1em;">
+        <h1 style="color:white; font-weight:700;">Search for Mnenomics</h1><br><br>
+        <div>
+            <input class="form-control form-control-lg" id="SeachInput" type="text" placeholder="Type your text over here" style="height: 50px; max-width:500em;">
+        </div>
+    </div>
+</form>

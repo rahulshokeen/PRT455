@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MnemonicsDbModelStoreContainer" CdmEntityContainer="MnemonicsDbEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="MnemonicsDbModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keywords">
+      <EntityTypeMapping TypeName="MnemonicsDbModel.Keyword">
+        <MappingFragment StoreEntitySet="Keywords">
+          <ScalarProperty Name="KeywordsId" ColumnName="KeywordsId" />
+          <ScalarProperty Name="ChapterNo" ColumnName="ChapterNo" />
+          <ScalarProperty Name="ConceptToRemember" ColumnName="ConceptToRemember" />
+          <ScalarProperty Name="Mnemonics" ColumnName="Mnemonics" />
+          <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Visibile" ColumnName="Visibile" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recovers">
+      <EntityTypeMapping TypeName="MnemonicsDbModel.Recover">
+        <MappingFragment StoreEntitySet="Recover">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="RecoverHash" ColumnName="RecoverHash" />
+          <ScalarProperty Name="PreviousEmail" ColumnName="PreviousEmail" />
+          <ScalarProperty Name="PreviousPassword" ColumnName="PreviousPassword" />
+          <ScalarProperty Name="PreviousRecoverHash" ColumnName="PreviousRecoverHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MnemonicsDbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="VerificationHash" ColumnName="VerificationHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

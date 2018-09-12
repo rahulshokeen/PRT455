@@ -1,0 +1,90 @@
+﻿@model Mnemonics.Models.Keyword
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Keyword</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChapterNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChapterNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConceptToRemember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConceptToRemember)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mnemonics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mnemonics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visibile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visibile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeywordsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

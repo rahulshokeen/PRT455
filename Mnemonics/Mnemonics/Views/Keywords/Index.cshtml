@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Mnemonics.Models.Keyword>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChapterNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConceptToRemember)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mnemonics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visibile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChapterNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConceptToRemember)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mnemonics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KeyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visibile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KeywordsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KeywordsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KeywordsId })
+        </td>
+    </tr>
+}
+
+</table>
