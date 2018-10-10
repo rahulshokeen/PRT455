@@ -1,0 +1,24 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <mat-card class="mnemonics-card">
+    <mat-card-title>
+      Add Mnemonics
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input disabled matInput placeholder="Select the date..." [(ngModel)]="mnemonics.date" name="date" [matDatepicker]="date">
+        <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker disabled="false" #date></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea placeholder="Enter your mnemonics..." rows="3" maxlength="300" matInput [(ngModel)]="mnemonics.text" name="mnemonics"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea placeholder="Enter the Description of your Mnemonics" rows="3" maxlength="300" matInput [(ngModel)]="mnemonics.text" name="mnemonics"></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="submit">Save me!</button>
+    </mat-card-actions>
+  </mat-card>
+ </form>
+ <pre> {{ memory | json }} </pre>

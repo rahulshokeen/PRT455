@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Roboto";
+    src: url(fonts\Roboto.ttf) format("truetype");
+}
+h2, p, h1, input{
+    font-family: Roboto !important;
+}
+
+.login-form{
+	padding: 100px; 
+	margin: 0 50px 0 50px; 
+	border-style: solid; 
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 40px;
+}
+
+.bgcol{
+	background-color: #000;
+}
+
+img{
+	opacity: 0.5;
+}
+
+body{
+    /* background-image: url("images/data.jpg"); */
+    color: white;
+}
